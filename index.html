@@ -1,0 +1,1199 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>CSS Basics @ EPAM & Universities</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/white.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/theme/kpi.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section class="section-start">
+					<h1>CSS Advanced</h1>
+					<br>
+					<br>
+					<p>Yevhen Isakov</p>
+					<p>2020</p>
+				</section>
+
+				<section>
+					<div class="author">
+						<div class="author__info">
+							<p>Yevhen Isakov</p>
+							<p class="fragment">Software Engineer @ EPAM Systems</p>
+							<p class="fragment">12+ years</p>
+							<p class="fragment">Speaker at <br>
+								<a href="https://kharkivcss.org" target="_blank">KharkivCSS</a> 2017, 2018<br>
+								<a href="https://lvivcss.org" target="_blank">LvivCSS</a> 2018, 2019</p>
+						</div>
+						<img src="img/me.jpg" alt="" class="author__photo" />
+					</div>
+				</section>
+				
+				<!--section>
+					<h2>CSS Syntax</h2>
+					<pre><code>
+h1 {
+  color: blue;
+  background-color: yellow;
+  border: 1px solid black;
+}
+
+p {
+  color: red;
+}
+
+p, li {
+  text-decoration: underline;
+}
+					</code></pre>
+				</section>
+				
+				<section>
+					<div class="css-syntax is-enlarged">
+						<div class="fragment css-syntax__fragment css-syntax__fragment--selector"></div>
+						<div class="fragment css-syntax__fragment css-syntax__fragment--bracket"></div>
+						<div class="fragment css-syntax__fragment css-syntax__fragment--property"></div>
+						<div class="fragment css-syntax__fragment css-syntax__fragment--colon"></div>
+						<div class="fragment css-syntax__fragment css-syntax__fragment--value"></div>
+						<div class="fragment css-syntax__fragment css-syntax__fragment--semicolon"></div>
+						<div class="fragment css-syntax__fragment css-syntax__fragment--declaration"></div>
+						<div class="fragment css-syntax__fragment css-syntax__fragment--block"></div>
+						<div class="css-syntax__block" data-tooltip="Block">
+							<div class="css-syntax__row"><span class="css-syntax__selector" data-tooltip="Selector">p</span> <span class="css-syntax__bracket" data-tooltip="Brackets">{</span></div>
+							<div class="css-syntax__row css-syntax__declaration" data-tooltip="Declaration"><span class="css-syntax__property" data-tooltip="Property">border</span><span class="css-syntax__colon" data-tooltip="Colon">:</span> <span class="css-syntax__value" data-tooltip="Value"><span class="css-syntax__unit">1</span>px solid black</span><span class="css-syntax__semicolon" data-tooltip="Semicolon">;</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">color</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value">red</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row"><span class="css-syntax__bracket">}</span></div>
+						</div>
+					</div>
+					<p class="fragment"><a href="https://www.w3.org/TR/css-syntax-3/" target="_blank">CSS Syntax Module Level 3</a></p>
+				</section>
+				
+				<section>
+					<h2>CSS Properties</h2>
+					<ul>
+						<li class="fragment">color</li>
+						<li class="fragment">font-weight</li>
+						<li class="fragment">width</li>
+						<li class="fragment">height</li>
+						<li class="fragment">border</li>
+						<li class="fragment">padding-top</li>
+						<li class="fragment">background-color</li>
+						<li class="fragment">display</li>
+						<li class="fragment">transform</li>
+						<li class="fragment">...etc</li>
+					</ul>
+				</section>
+				
+				<section>
+					<div class="css-syntax">
+						<div class="css-syntax__block">
+							<div class="css-syntax__row"><span class="css-syntax__selector">h1</span> <span class="css-syntax__bracket">{</span></div>
+							<div class="fragment css-syntax__row css-syntax__declaration"><span class="css-syntax__property">display</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value">inline-block</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="fragment css-syntax__row css-syntax__declaration"><span class="css-syntax__property">width</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value"><span class="css-syntax__unit">80</span>%</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="fragment css-syntax__row css-syntax__declaration"><span class="css-syntax__property">border-bottom</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value"><span class="css-syntax__unit">1</span>px solid gray</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="fragment css-syntax__row css-syntax__declaration"><span class="css-syntax__property">background-color</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value">yellow</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="fragment css-syntax__row css-syntax__declaration"><span class="css-syntax__property">color</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value">#333</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="fragment css-syntax__row css-syntax__declaration"><span class="css-syntax__property">font-weight</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value">bold</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row"><span class="css-syntax__bracket">}</span></div>
+						</div>
+					</div>
+				</section>
+				
+				<section>
+					<div class="css-syntax">
+						<div class="css-syntax__block">
+							<div class="css-syntax__row"><span class="css-syntax__selector">div</span> <span class="css-syntax__bracket">{</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">padding-top</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value"><span class="css-syntax__unit">20</span>px</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">padding-right</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value"><span class="css-syntax__unit">0</span></span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">padding-bottom</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value"><span class="css-syntax__unit">10</span>%</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">padding-left</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value"><span class="css-syntax__unit">12</span>px</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row"><span class="css-syntax__bracket">}</span></div>
+						</div>
+					</div>
+					<div class="css-syntax fragment">
+						<div class="css-syntax__block">
+							<div class="css-syntax__row"><span class="css-syntax__selector">div</span> <span class="css-syntax__bracket">{</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">padding</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value"><span class="css-syntax__unit">20</span>px <span class="css-syntax__unit">0</span> <span class="css-syntax__unit">10</span>% <span class="css-syntax__unit">12</span>px</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row"><span class="css-syntax__bracket">}</span></div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="trbl">
+						<div class="trbl__elem trbl__elem--t">T</div>
+						<div class="trbl__elem trbl__elem--r">R</div>
+						<div class="trbl__elem trbl__elem--b">B</div>
+						<div class="trbl__elem trbl__elem--l">L</div>
+					</div>
+				</section>
+				
+				<section>
+					<h2>Vendor prefixes</h2>
+					<div class="css-syntax fragment">
+						<div class="css-syntax__block">
+							<div class="css-syntax__row"><span class="css-syntax__selector">div</span> <span class="css-syntax__bracket">{</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">-webkit-border-radius</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value"><span class="css-syntax__unit">10</span>px</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">-moz-border-radius</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value"><span class="css-syntax__unit">10</span>px</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">border-radius</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value"><span class="css-syntax__unit">10</span>px</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row"><span class="css-syntax__bracket">}</span></div>
+						</div>
+					</div>
+				</section-->
+				
+				<section>
+					<h2>Vendor prefixes</h2>
+					<ul>
+						<li class="fragment"><code class="code">-webkit-</code> Chrome, Safari (WebKit/Blink)</li>
+						<li class="fragment"><code class="code">-moz-</code> Firefox (Gecko)</li>
+						<li class="fragment" style="text-decoration: line-through;text-decoration-color:red;"><code class="code">-ms-</code> Internet Explorer / Edge (Trident/Edge)</li>
+						<li class="fragment" style="text-decoration: line-through;text-decoration-color:red;"><code class="code">-o-</code> &mdash; Opera (Presto)</li>
+					</ul>
+					<p class="fragment">
+						<a href="https://caniuse.com" target="_blank">Can I Use?</a>
+					</p>
+				</section>
+
+				<section>
+					<h2>CSS Inheritance</h2>
+					<div class="fragment">
+						<img src="img/inheritance.png" alt="">
+					</div>
+				</section>
+				
+				<section>
+					<p>Inherited</p>
+					<p>
+						<span class="fragment"><code class="code">font-family</code></span>
+						<span class="fragment"><code class="code">font-size</code></span>
+						<span class="fragment"><code class="code">font-style</code></span>
+						<span class="fragment"><code class="code">font-weight</code></span>
+						<span class="fragment"><code class="code">color</code></span>
+						<span class="fragment"><code class="code">text-align</code></span>
+						<span class="fragment"><code class="code">line-height</code></span>
+						<span class="fragment"><code class="code">direction</code></span>
+						<span class="fragment">etc</span>
+					</p>
+					<p class="fragment">Not inherited</p>
+					<p>
+						<span class="fragment"><code class="code">display</code></span>
+						<span class="fragment"><code class="code">margin</code></span>
+						<span class="fragment"><code class="code">background-color</code></span>
+						<span class="fragment"><code class="code">position</code></span>
+						<span class="fragment">etc</span>
+					</p>
+				</section>
+				
+				<section>
+					<h2>CSS Inheritance</h2>
+					<div class="css-syntax">
+						<div class="css-syntax__block">
+							<div class="css-syntax__row"><span class="css-syntax__selector">em</span> <span class="css-syntax__bracket">{</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">background</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value">inherit</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row"><span class="css-syntax__bracket">}</span></div>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<h2>CSS Cascading</h2>
+					<p class="fragment">The cascade takes a unordered list of declared values for a given property on a given element, sorts them by their declaration’s precedence, and outputs a single cascaded value.</p>
+				</section>
+				
+				<section>
+					<h3>CSS Cascading - origins</h3>
+					<ul>
+						<li class="fragment">user-agent stylesheet</li>
+						<li class="fragment">author styles</li>
+						<li class="fragment"><em>reader</em> styles</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h3>CSS Cascading - specificity</h3>
+					<ol style="list-style:numeric-leading-zero">
+						<li class="fragment">Tag selector (<code class="code">h1</code>), pseudo element (<code class="code">::before</code>)</li>
+						<li class="fragment">Class selector (<code class="code">.example</code>), attribute selector (<code class="code">[type="radio"]</code>), pseudo class (<code class="code">:hover</code>)</li>
+						<li class="fragment">ID selector (<code class="code">#example</code>)</li>
+						<li class="fragment">Element styles (<code class="code">style="font-weight:bold"</code>)</li>
+					</ol>
+				</section>
+				
+				<section>
+					<h3>CSS Cascading - specificity</h3>
+					<ul>
+						<li class="fragment">Universal selector (<code class="code">*</code>) and combinators (<code class="code">+</code>, <code class="code">~</code>, <code class="code">></code>) and <code class="code">:not()</code> <strong>do not affect</strong> the specificity</li>
+						<li class="fragment"><code class="code">!important</code> overrides all other entries. <strong style="color:red;text-transform: uppercase;">Do not use !important</strong></li>
+						<li class="fragment"><a href="https://www.w3.org/TR/css-cascade-3/#importance" target="_blank">CSS Cascading and Inheritance Level 3</a></li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>CSS Specificity</h2>
+					<table class="reveal">
+						<tr>
+							<th scope="col">Selector</th>
+							<th>Specificity</th>
+							<th>Specificity in base 10</th>
+						</tr>
+						<tbody class="monospace">
+						<tr>
+							<th scope="row"><code class="code">style=""</code></th>
+							<td>1, 0, 0, 0</td>
+							<td>1000</td>
+						</tr>
+						<tr>
+							<th scope="row"><code class="code">#wrapper #content</code></th>
+							<td>0, 2, 0, 0</td>
+							<td>200</td>
+						</tr>
+						<tr>
+							<th scope="row"><code class="code">#content .list</code></th>
+							<td>0, 1, 1, 0</td>
+							<td>110</td>
+						</tr>
+						<tr>
+							<th scope="row"><code class="code">div#content</code></th>
+							<td>0, 1, 0, 1</td>
+							<td>101</td>
+						</tr>
+						<tr>
+							<th scope="row"><code class="code">p.comment .date</code></th>
+							<td>0, 0, 2, 1</td>
+							<td>21</td>
+						</tr>
+						<tr>
+							<th scope="row"><code class="code">p.comment</code></th>
+							<td>0, 0, 1, 1</td>
+							<td>11</td>
+						</tr>
+						<tr>
+							<th scope="row"><code class="code">ul li</code></th>
+							<td>0, 0, 0, 2</td>
+							<td>2</td>
+						</tr>
+						<tr>
+							<th scope="row"><code class="code">div</code></th>
+							<td>0, 0, 0, 1</td>
+							<td>1</td>
+						</tr>
+						</tbody>
+					</table>
+				</section>
+				
+				<section>
+					<img src="img/cascade.jpg" alt="">
+				</section>
+				
+				<section>
+					<h2>Selectors</h2>
+				</section>
+				
+				<section>
+					<p>Tag selector <span class="fragment">&mdash; <code class="code">E</code></span></p>
+					<p class="fragment"><code class="code">div</code></p>
+					<p class="fragment"><code class="code">h1</code></p>
+					<p class="fragment"><code class="code">img</code></p>
+				</section>
+				
+				<section>
+					<p>Class selector <span class="fragment">&mdash; <code class="code">.class</code></span></p>
+					<p class="fragment"><code class="code">.header</code></p>
+					<p class="fragment"><code class="code">.item</code></p>
+					<p class="fragment"><code class="code">.is-active</code></p>
+				</section>
+				
+				<section>
+					<p>ID selector <span class="fragment">&mdash; <code class="code">#id</code></span></p>
+					<p class="fragment"><code class="code">#header</code></p>
+					<p class="fragment"><code class="code">#search-button</code></p>
+					<p class="fragment"><code class="code">#dropdown</code></p>
+				</section>
+
+				<section>
+					<p>Attribute selector <span class="fragment">&mdash; <code class="code">[attr]</code></span></p>
+					<p class="fragment"><code class="code">[disabled]</code></p>
+					<p class="fragment"><code class="code">[role="dialog"]</code></p>
+					<p class="fragment"><code class="code">[data-component*="popup"]</code></p>
+				</section>
+
+				<section>
+					<p>Universal selector <span class="fragment">&mdash; <code class="code">*</code></span></p>
+					<p class="fragment"><code class="code">*</code></p>
+				</section>
+
+				<section>
+					<p>Cascade selector <span class="fragment">&mdash; <code class="code">E F</code></span></p>
+					<p class="fragment"><code class="code">ul li</code></p>
+					<p class="fragment"><code class="code">div a</code></p>
+					<p class="fragment"><code class="code">header h1 .link</code></p>
+				</section>
+
+				<section>
+					<p>Child selector <span class="fragment">&mdash; <code class="code">E > F</code></span></p>
+					<p class="fragment"><code class="code">ul > li</code></p>
+					<p class="fragment"><code class="code">.menu > .item</code></p>
+					<p class="fragment"><code class="code">footer > img</code></p>
+				</section>
+
+				<section>
+					<p>General sibling selector <span class="fragment">&mdash; <code class="code">E ~ F</code></span></p>
+					<p class="fragment"><code class="code">input ~ label</code></p>
+					<p class="fragment"><code class="code">span ~ em</code></p>
+					<p class="fragment"><code class="code">.image ~ .link</code></p>
+				</section>
+
+				<section>
+					<p>Adjacent sibling selector <span class="fragment">&mdash; <code class="code">E + F</code></span></p>
+					<p class="fragment"><code class="code">input + label</code></p>
+					<p class="fragment"><code class="code">span + em</code></p>
+					<p class="fragment"><code class="code">.image + .link</code></p>
+				</section>
+				
+				<section>
+					<h2>Pseudo classes</h2>
+					<p class="fragment">Starts with single colon</p>
+				</section>
+				
+				<section>
+					<p>Links</p>
+					<p class="fragment"><code class="code">:link</code></p>
+					<p class="fragment"><code class="code">:active</code></p>
+					<p class="fragment"><code class="code">:visited</code></p>
+					<p class="fragment"><code class="code">:any-link</code></p>
+				</section>
+				
+				<section>
+					<p>Events</p>
+					<p class="fragment"><code class="code">:hover</code></p>
+					<p class="fragment"><code class="code">:focus</code></p>
+					<p class="fragment"><code class="code">:focus-within</code></p>
+					<p class="fragment"><code class="code">:target</code></p>
+					<p class="fragment"><code class="code">:active</code></p>
+					<p class="fragment"><code class="code">:checked</code></p>
+				</section>
+				
+				<section>
+					<p>Forms</p>
+					<p class="fragment"><code class="code">:enabled</code></p>
+					<p class="fragment"><code class="code">:disabled</code></p>
+					<p class="fragment"><code class="code">:valid</code></p>
+					<p class="fragment"><code class="code">:invalid</code></p>
+					<p class="fragment"><code class="code">:indeterminate</code></p>
+					<p class="fragment"><code class="code">:required</code></p>
+				</section>
+				
+				<section>
+					<p>Elements</p>
+					<p class="fragment"><code class="code">:first-child</code></p>
+					<p class="fragment"><code class="code">:last-child</code></p>
+					<p class="fragment"><code class="code">:first-of-type</code></p>
+					<p class="fragment"><code class="code">:last-of-type</code></p>
+					<p class="fragment"><code class="code">:nth-child(n)</code></p>
+					<p class="fragment"><code class="code">:nth-last-child(n)</code></p>
+				</section>
+				
+				<section>
+					<p>Negation</p>
+					<p class="fragment"><code class="code">:not()</code></p>
+					<p class="fragment">General</p>
+					<p class="fragment"><code class="code">:root</code></p>
+				</section>
+				
+				<section>
+					<h2>Pseudo elements</h2>
+					<p class="fragment">Starts with double colon</p>
+				</section>
+				
+				<section>
+					<p>Generated content</p>
+					<p class="fragment"><code class="code">::before</code> & <code class="code">::after</code></p>
+					<div class="css-syntax fragment">
+						<div class="css-syntax__block">
+							<div class="css-syntax__row"><span class="css-syntax__selector">div::before</span> <span class="css-syntax__bracket">{</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">content</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value">"before << "</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row"><span class="css-syntax__bracket">}</span></div>
+							<div class="css-syntax__row"></div>
+							<div class="css-syntax__row"><span class="css-syntax__selector">div::after</span> <span class="css-syntax__bracket">{</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">content</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value">" >> after"</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row"><span class="css-syntax__bracket">}</span></div>
+						</div>
+					</div>
+					<div class="css-example css-example--pseudoelements fragment">This is text paragraph</div>
+				</section>
+				
+				<section>
+					<p>Input placeholder</p>
+					<p class="fragment"><code class="code">::placeholder</code></p>
+					<p><input type="text" placeholder="Enter some text" style="font-size:2em" /></p>
+				</section>
+				
+				<section>
+					<h2>At-rule selectors</h2>
+					<p class="fragment"><code class="code">@charset</code></p>
+					<p class="fragment"><code class="code">@media</code></p>
+					<p class="fragment"><code class="code">@page</code></p>
+					<p class="fragment"><code class="code">@keyframes</code></p>
+					<p class="fragment"><code class="code">@supports</code></p>
+				</section>
+				
+				<section>
+					<p><a href="https://www.w3.org/TR/selectors-4/" target="_blank">CSS Selectors Level 4 @ W3C</a></p>
+					<p class="fragment"><a href="https://www.youtube.com/watch?v=o6cNYFIMOZc" target="_blank">CSS Selectors @ KharkivCSS #2</a></p>
+					<p class="fragment"><a href="https://www.youtube.com/watch?v=A92UKmIdvBw" target="_blank">HTML5 Elements and their styling @ KharkivCSS #3</a></p>
+				</section>
+
+				<section>
+					<h2>CSS Reset</h2>
+					<blockquote class="fragment">The basic reason is that all browsers have presentation defaults, but no browsers have the same defaults...</blockquote>
+				</section>
+
+				<section>
+					<p>Global white-space reset</p>
+					<pre><code>* {
+	margin: 0;
+	padding: 0;
+	}</code></pre>
+				</section>
+
+				<section>
+					<p>Eric Meyer's CSS reset</p>
+					<p class="fragment"><a href="https://meyerweb.com/eric/tools/css/reset/reset.css" target="_blank">meyerweb.com/eric/tools/css/reset/reset.css</a></p>
+				</section>
+
+				<section>
+					<p>normalize.css</p>
+					<p class="fragment"><a href="https://necolas.github.io/normalize.css/" target="_blank">necolas.github.io/normalize.css</a></p>
+				</section>
+				
+				<section>
+					<h2>CSS Units</h2>
+					<div>
+						<code class="code fragment">px</code>
+						<code class="code fragment">em</code>
+						<code class="code fragment">%</code>
+						<code class="code fragment">s</code>
+						<code class="code fragment">ms</code>
+						<code class="code fragment">fr</code>
+						<code class="code fragment">vw</code>
+						<code class="code fragment">vh</code>
+						<span class="fragment">...etc</span>
+					</div>
+				</section>
+				
+				<section>
+					<h3>Relative units</h3>
+					<p class="fragment"><code class="code">em</code> font-size of the parent element</p>
+					<p class="fragment"><code class="code">rem</code> font-size of root element</p>
+					<p class="fragment"><code class="code">ex</code> height of the "x" letter in lowercase</p>
+					<p class="fragment"><code class="code">ch</code> width of the "0" symbol</p>
+					<p class="fragment"><code class="code">%</code> relative to the same property of the parent element</p>
+				</section>
+				
+				<section>
+					<h3>Viewport-relative units</h3>
+					<p class="fragment"><code class="code">vw</code> 1% of the width of the viewport</p>
+					<p class="fragment"><code class="code">vh</code> 1% of the width of the viewport</p>
+					<p class="fragment"><code class="code">vmin</code> 1% of viewport's* smaller dimension</p>
+					<p class="fragment"><code class="code">vmax</code> 1% of viewport's* larger dimension</p>
+				</section>
+				
+				<section>
+					<h3>Absolute units</h3>
+					<p class="fragment"><code class="code">mm</code> millimeters</p>
+					<p class="fragment"><code class="code">in</code> inches (1in = 96px = 2.54cm)</p>
+					<p class="fragment"><code class="code">px</code> pixels (1px = 1/96th of 1in)</p>
+					<p class="fragment"><code class="code">pt</code> points (1pt = 1/72 of 1in)</p>
+					<p class="fragment"><code class="code">pc</code> picas (1pc = 12 pt)</p>
+				</section>
+
+				<section>
+					<h3>Notes</h3>
+					<p class="fragment"><mark>em</mark> and <mark>px</mark> are most usable units for fonts, <mark>rem</mark> becoming popular</p>
+					<p class="fragment"><mark>%</mark> is the most popular unit for layout due to responsive</p>
+					<p class="fragment"><mark>vw</mark>/<mark>vh</mark> usually used for dimensions which relate to viewport</p>
+					<p class="fragment">Most of absolute units are used preferably for print page rules</p>
+					<p class="fragment">
+						<a target="blank" href="https://www.w3.org/TR/css-values-4/#lengths">CSS Values and Units Module Level 4</a>
+					</p>
+				</section>
+				
+				<section>
+					<h2>Math</h2>
+					<p class="fragment">Native CSS way to do simple math right in CSS. The most useful ability of calc() is <mark>its ability to mix units.</mark></p>
+					<div class="css-syntax fragment">
+						<div class="css-syntax__block">
+							<div class="css-syntax__row"><span class="css-syntax__selector">ul</span> <span class="css-syntax__bracket">{</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">width</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value">calc(<span class="css-syntax__unit">100</span>% - <span class="css-syntax__unit">20</span>px)</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">font-size</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value">calc(<span class="css-syntax__unit">0.5</span>em + <span class="css-syntax__unit">6</span>px)</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row"><span class="css-syntax__bracket">}</span></div>
+						</div>
+					</div>
+					<p class="fragment">
+						<a href="https://www.w3.org/TR/css-values-3/#calc-notation" target="_blank">CSS Values and Units Module Level 3</a>
+					</p>
+				</section>
+
+<!--				<section data-background="img/caniuse-calc.jpg"></section>-->
+
+				<section>
+					<h2>CSS Variables</h2>
+					<div class="css-syntax fragment">
+						<div class="css-syntax__block">
+							<div class="css-syntax__row"><span class="css-syntax__selector">:root</span> <span class="css-syntax__bracket">{</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">--font-stack</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value">Helvetica, sans-serif</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">--primary-color</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value">#333</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row"><span class="css-syntax__bracket">}</span></div>
+							<div class="css-syntax__row"></div>
+							<div class="css-syntax__row"><span class="css-syntax__selector">body</span> <span class="css-syntax__bracket">{</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">font</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value"><span class="css-syntax__unit">100</span>% var(--font-stack)</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row css-syntax__declaration"><span class="css-syntax__property">color</span><span class="css-syntax__colon">:</span> <span class="css-syntax__value">var(--primary-color)</span><span class="css-syntax__semicolon">;</span></div>
+							<div class="css-syntax__row"><span class="css-syntax__bracket">}</span></div>
+						</div>
+					</div>
+					<p class="fragment">
+						<a href="https://www.w3.org/TR/css-variables-1/" target="_blank">CSS Custom Properties for Cascading Variables Module Level 1</a>
+					</p>
+				</section>
+
+<!--				<section data-background="img/caniuse-variables.jpg"></section>-->
+
+				<section>
+					<h2>Responsive</h2>
+				</section>
+
+				<section data-background="img/devices.jpg" data-background-color="#44b3ce" data-background-size="contain"></section>
+
+				<section data-background="img/content-like-water.png" data-background-color="#131313" data-background-size="contain"></section>
+
+				<section>
+					<h3><code>meta viewport</code></h3>
+					<p class="fragment"><code>&lt;meta name="viewport" content="width=device-width" /></code></p>
+					<p class="fragment"><code><span style="color:#0039ff;">width</span>=<span style="color:#008000">device-width</span></code> sets <i>page</i> width same as <i>device screen</i> width</p>
+				</section>
+
+				<section>
+					<h3>RWD principles</h3>
+					<ul>
+						<li class="fragment">Fluid grids</li>
+						<li class="fragment">Flexible images</li>
+						<li class="fragment">Media queries</li>
+					</ul>
+				</section>
+
+				<section>
+					<p>Fluid grids</p>
+					<p class="fragment">Page element sizing to be in relative units like percentages or ems, rather than absolute units like pixels or points</p>
+				</section>
+
+				<section>
+					<p>Flexible images</p>
+					<pre class="fragment"><code>img {
+	max-width: 100%;
+	height: auto;
+	}</code></pre>
+				</section>
+
+				<section>
+					<p><code>&lt;picture&gt;</code> tag</p>
+					<pre class="fragment"><code>&lt;picture>
+	  &lt;source srcset="img_smallflower.jpg" media="(max-width: 480px)">
+	  &lt;source srcset="img_flowers.jpg">
+	  &lt;img src="img_flowers.jpg" alt="Flowers">
+&lt;/picture></code></pre>
+				</section>
+
+				<section>
+					<p>Media queries</p>
+					<p class="fragment"><a href="https://www.w3.org/TR/css3-mediaqueries/" target="_blank">Media Queries @ W3C</a></p>
+					<p class="fragment" style="text-align:left;"><code><span style="color:#0039ff">@media</span> not|only</code> <i style="color:#008000">mediatype</i> <code>and</code> <code>(</code><i style="color:#008000">media feature</i> <code>and|or|not</code> <i style="color:#008000">media feature</i><code>) {</code><br>
+					...<br>
+					<code>}</code></p>
+				</section>
+
+				<section>
+					<h2>CSS Preprocessors</h2>
+				</section>
+
+				<section>
+					<h3>2006</h3>
+					<p class="fragment">CSS had no:</p>
+					<ul>
+						<li class="fragment">Variables</li>
+						<li class="fragment">Nesting</li>
+						<li class="fragment">Mixins</li>
+						<li class="fragment">Math</li>
+						<li class="fragment">Color functions</li>
+						<li class="fragment">Loops & conditions</li>
+					</ul>
+				</section>
+
+				<section>
+					<div><img src="img/sass-logo.svg" alt=""></div>
+					<p class="fragment"><a href="http://sass-lang.com" target="_blank">sass-lang.com</a>, 2006</p>
+				</section>
+
+				<section>
+					<p>Sass as Sass</p>
+					<div class="fragment">
+						<pre><code>body
+  background-color: #efefef
+  font-size: 100% Helvetica, sans-serif
+
+  ul
+    border: 2px solid rgba(black, .5)
+
+    li
+      padding-left: 20px</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<p>Sass as SCSS</p>
+					<pre><code>body {
+  background-color: #efefef;
+  font-size: 100% Helvetica, sans-serif;
+  }
+
+  ul {
+    border: 2px solid rgba(black, .5);
+    }
+
+    li {
+      padding-left: 20px;
+      }</code></pre>
+				</section>
+
+				<section>
+					<img src="img/less-logo.png" alt="">
+					<p class="fragment"><a href="http://lesscss.org/" target="_blank">lesscss.org</a>, 2009</p>
+				</section>
+
+				<section>
+					<img src="img/stylus-logo.png" alt="">
+					<p class="fragment"><a href="http://stylus-lang.com" target="_blank">stylus-lang.com</a>, 2009</p>
+				</section>
+
+				<section>
+					<div>Variables</div>
+				</section>
+
+				<section>
+					<div class="css-prep-example">
+						<div class="css-prep-example__item">
+							<span class="css-prep-example__name">SCSS</span>
+							<div class="css-prep-example__content">
+								<pre><code class="sass">$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  }</code></pre>
+							</div>
+						</div>
+						<div class="css-prep-example__item fragment">
+							<span class="css-prep-example__name">LESS</span>
+							<div class="css-prep-example__content">
+								<pre><code class="sass">@$font-stack: Helvetica, sans-serif;
+@primary-color: #333;
+
+body {
+  font: 100% @font-stack;
+  color: @primary-color;
+  }</code></pre>
+							</div>
+						</div>
+						<div class="css-prep-example__item fragment">
+							<span class="css-prep-example__name">Stylus</span>
+							<div class="css-prep-example__content">
+								<pre><code class="sass">$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  }</code></pre>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div>Nesting</div>
+				</section>
+
+				<section>
+					<div class="css-prep-example is-paired">
+						<div class="css-prep-example__item">
+							<div class="css-prep-example__name">SCSS</div>
+							<div class="css-prep-example__content">
+									<pre><code>div {
+  padding: 0 20px;
+  border-bottom: 2px solid gray;
+
+  & em {
+    font-size: 1.25em;
+    text-decoration: underline;
+    }
+
+  & .button {
+    background: yellow;
+    }
+  }</code></pre>
+							</div>
+						</div>
+						<div class="css-prep-example__item">
+							<div class="css-prep-example__name">CSS</div>
+							<div class="css-prep-example__content">
+									<pre><code>div {
+  padding: 0 20px;
+  border-bottom: 2px solid gray;
+
+  div em {
+    font-size: 1.25em;
+    text-decoration: underline;
+    }
+
+  div .button {
+    background: yellow;
+    }
+  }</code></pre>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<p>@import</p>
+				</section>
+
+				<section>
+					<pre><code>@import "reset.css";
+@import "asset/variables.sass";
+@import "component/nav/navbar.sass";</code></pre>
+				</section>
+
+				<section>
+					<p>Mixins</p>
+				</section>
+
+				<section>
+					<p>Sass</p>
+					<div class="fragment">
+						<pre><code>@mixin bordered($width) {
+  border: $width solid #ddd;
+
+  &:hover {
+    border-color: #999;
+    }
+  }
+
+div {
+  @include bordered(5px);
+  }</code></pre>
+					</div>
+				</section>
+
+
+				<section>
+					<p>LESS</p>
+					<div class="fragment">
+						<pre><code>.bordered(@width) {
+  border: @width solid #ddd;
+
+  &:hover {
+    border-color: #999;
+    }
+  }
+
+div {
+  .bordered(5px);
+  }</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<p>Stylus</p>
+					<div class="fragment">
+						<pre><code>bordered(width)
+  border: width solid #ddd
+
+  &:hover
+      border-color: #999
+
+div
+  bordered(5px)</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<p>Extend</p>
+				</section>
+
+				<section>
+					<p>Sass</p>
+					<div class="fragment">
+						<pre><code>.block {
+  margin: 10px 5px;
+  }
+
+p {
+  @extend .block;
+  border: 1px solid #eee;
+  }
+
+ul, ol {
+  @extend .block;
+  color: #333;
+  text-transform: uppercase;
+  }</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<p>LESS</p>
+					<div class="fragment">
+						<pre><code>.block {
+  margin: 10px 5px;
+}
+
+p {
+  &:extend(.block);
+  border: 1px solid #eee;
+}
+
+ul, ol {
+  &:extend(.block);
+  color: #333;
+  text-transform: uppercase;
+}</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<p>Stylus</p>
+					<div class="fragment">
+						<pre><code>.block
+  margin 10px 5px
+
+p
+  @extend .block
+  border 1px solid #eee
+
+ul, ol
+  @extend .block
+  color #333
+  text-transform uppercase</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<div class="css-prep-example is-paired">
+						<div class="css-prep-example__item">
+							<div class="css-prep-example__name">Extend</div>
+							<div class="css-prep-example__content">
+								<pre><code>.awesome {
+  width: 100%;
+  height: 100%;
+  }
+body {
+  @extend .awesome;
+  }
+p {
+  @extend .awesome;
+  }</code></pre>
+								<pre><code>.awesome, body, p {
+  width: 100%;
+  height: 100%;
+  }</code></pre>
+							</div>
+						</div>
+						<div class="css-prep-example__item">
+							<div class="css-prep-example__name">Mixin</div>
+							<div class="css-prep-example__content">
+								<pre><code>@mixin awesome($w: 100%) {
+  width: $w;
+  }
+body {
+  @include awesome(960px);
+  }
+p {
+  @include awesome;
+  }</code></pre>
+								<pre><code>body {
+  width: 960px;
+}
+p {
+  width: 100%;
+}</code></pre>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<p>Math</p>
+					<div class="fragment">
+						<pre><code>1cm * 1em => 1cm * em
+2in * 3in => 6in *in
+(1cm / 1em) * 4em => 4cm
+2in + 3cm + 2pc => 3.514in
+3in / 2in => 1.5
+...
+p {
+  margin: 2 * $col + 10px;
+  line-height: $font-size * 1.5;
+}</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<p>Loops</p>
+				</section>
+
+				<section>
+					<div class="css-prep-example">
+						<div class="css-prep-example__item">
+							<div class="css-prep-example__name">Sass</div>
+							<div class="css-prep-example__content">
+								<pre><code>@for $i from 1px to 3px {
+  .border-#{i} {
+    border: $i solid blue;
+    }
+  }</code></pre>
+							</div>
+						</div>
+						<div class="css-prep-example__item">
+							<div class="css-prep-example__name">LESS</div>
+							<div class="css-prep-example__content">
+								<pre><code>.loop(@counter) when (@counter > 0) {
+  .loop((@counter - 1));
+
+  .border-@{counter} {
+    border: 1px * @counter solid blue;
+    }
+  }</code></pre>
+							</div>
+						</div>
+						<div class="css-prep-example__item">
+							<div class="css-prep-example__name">Stylus</div>
+							<div class="css-prep-example__content">
+								<pre><code>for num in (1..3)
+  .border-{num}
+    border 1px * num solid blue</code></pre>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<p>Color functions</p>
+					<div class="fragment">
+						<pre><code>saturate(color, amount)
+desaturate(color, amount)
+lighten(color, amount)
+darken(color, amount)
+adjust-hue(color, amount)
+opacity(color, amount)
+transperentize(color, amount)
+mix(color1, color2[, amount])
+grayscale(color)
+complement(color)</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<p>Native CSS?</p>
+				</section>
+
+				<section>
+					<h2>2006</h2>
+					<p class="fragment">CSS had no:</p>
+					<ul>
+						<li class="fragment">Variables</li>
+						<li class="fragment">Nesting</li>
+						<li class="fragment">Mixins</li>
+						<li class="fragment">Math</li>
+						<li class="fragment">Color functions</li>
+						<li class="fragment">Loops & conditions</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>2020</h2>
+					<div class="fragment">CSS has:</div>
+				</section>
+
+				<section class="section-css-variables" data-state="css-variables">
+					<div class="section-header">CSS Variables</div>
+					<div class="fragment">
+						<pre><code class="css">:root {
+  --font-stack: Helvetica, sans-serif;
+  --primary-color: #333;
+  }
+
+body {
+  font: 100% var(--font-stack);
+  color: var(--primary-color);
+  }</code></pre>
+						<div>
+							<a href="https://www.w3.org/TR/css-variables-1/" target="_blank">CSS Custom Properties for Cascading Variables Module Level 1</a>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<img src="img/caniuse-variables.jpg" alt="">
+				</section>
+
+				<section>
+					<div class="section-header">Nesting</div>
+					<div class="fragment">
+						<pre><code class="css">.block {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__element {
+    display: inline-block;
+
+    &--modifier {
+      display: block;
+      padding: 6px 12px;
+      text-decoration: none;
+      }
+    }
+  }</code></pre>
+						<div class="spec-link">
+							<a href="http://tabatkins.github.io/specs/css-nesting/" target="_blank">CSS Nesting Module Level 3 <span>(Editor Draft)</span></a>
+						</div>
+						<div class="spec-link">
+							<a href="https://drafts.csswg.org/css-nesting-1/" target="_blank">CSS Nesting Module <span>(Editor’s Draft, 9 March 2019)</span> @ CSS WG</a>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="section-header">Math</div>
+					<div class="fragment">
+						<pre><code class="css">ul {
+  width: calc(120px * 8);
+  padding: calc(12px + .5em);
+  }</code></pre>
+						<div class="spec-link">
+							<a href="https://www.w3.org/TR/css-values-3/#calc-notation" target="_blank">CSS Values and Units Module Level 3</a>
+						</div>
+					</div>
+				</section>
+
+				<!--<section>
+					<img src="img/caniuse-calc.jpg" alt="">
+				</section>-->
+
+				<section>
+					<div class="section-header">Mixins</div>
+					<div class="fragment">
+						<pre><code class="css">:root {
+  --toolbar-theme: {
+    background-color: hsl(120, 70%, 95%);
+    border-radius: 4px;
+    border: 1px solid var(--theme-color late);
+    };
+  }
+
+.toolbar {
+  @apply --toolbar-theme;
+  }</code></pre>
+						<div class="spec-link">
+							<a href="http://tabatkins.github.io/specs/css-apply-rule/" target="_blank">CSS @apply Rule <span class="is-abandoned">(Abandoned)</span></a>
+						</div>
+						<p class="fragment">
+							<a href="https://www.xanthir.com/b4o00" target="_blank">Why I Abandoned @apply (Apr 24, 2017)</a>
+						</p>
+					</div>
+				</section>
+
+				<section class="section-postcss">
+					<div class="section-header">PostCSS</div>
+					<img src="img/postcss-logo.svg" alt="">
+					<p class="fragment"><a href="https://postcss.org/" target="_blank">postcss.org</a>, 2013</p>
+				</section>
+
+				<section class="section-postcss-possibilities" data-state="postcss-possibilities">
+					<div class="section-header">PostCSS</div>
+					<ul>
+						<li class="fragment">Vendor prefixes</li>
+						<li class="fragment">Mixins</li>
+						<li class="fragment">Nesting</li>
+						<li class="fragment">Loops</li>
+						<li class="fragment">...</li>
+					</ul>
+				</section>
+
+				<section class="section-postcss-plugins" data-state="postcss-plugins">
+					<div class="section-header">PostCSS plugins</div>
+					<ul>
+						<li class="fragment">
+							<a href="https://github.com/postcss/autoprefixer" target="_blank">Autoprefixer</a> &mdash; vendor prefixes
+						</li>
+						<li class="fragment">
+							<a href="https://github.com/stylelint/stylelint/blob/master/docs/user-guide/postcss-plugin.md" target="_blank">StyleLint</a> &mdash; proofread and validation
+						</li>
+						<li class="fragment">
+							<a href="https://github.com/cssdream/cssgrace" target="_blank">CSSgrace</a> &mdash; old browsers
+						</li>
+						<li class="fragment">
+							<a href="https://github.com/csstools/postcss-preset-env" target="_blank">Preset Env</a> (ex CSSNext) &mdash; - future CSS syntax
+						</li>
+						<li class="fragment">
+							<a href="https://github.com/cssnano/cssnano" target="_blank">CSSNano</a> &mdash; - optimization & minification
+						</li>
+						<li class="fragment"><a href="https://github.com/jonathantneal/precss" target="_blank">PreCSS</a> - Sass-like syntax with all the power</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Thanks!</h3>
+					<p>Questions?</p>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
